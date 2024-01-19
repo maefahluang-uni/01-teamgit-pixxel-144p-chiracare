@@ -30,25 +30,57 @@ public class Counter {
 		_ctr = _ctr * _multiplier; // no fault here
 	}
 
-	// TODO: dev1- method for increment to closest even number
 	public void incrementToEven() {
-		_ctr = -99;
+		// Assuming _ctr is the variable to be incremented
+		if (_ctr % 2 != 0) {
+			// If _ctr is odd, increment it to make it even
+			_ctr++;
+		} else {
+			// If _ctr is already even, increment it by 2 to make it the next even number
+			_ctr += 2;
+		}
 	}
 
-	// TODO: dev1- method for decrement to closest even number
 	public void decrementToEven() {
-		_ctr = -99;
+		// Assuming _ctr is the variable to be decremented
+		if (_ctr % 2 != 0) {
+			// If _ctr is odd, decrement it to make it even
+			_ctr--;
+		} else {
+			// If _ctr is already even, decrement it by 2 to make it the previous even number
+			_ctr -= 2;
+		}
 	}
 
 	// TODO: dev2- method for increment to closest prime number
 	public void incrementToPrime() {
-		_ctr = -99;
+		increment();
+		while (!isPrime(_ctr)) {
+            _ctr++;
+        }
 	}
 
 	// TODO: dev2- method for decrement to closest prime number
 	public void decrementToPrime() {
-		_ctr = -99;
+		decrement();
+		while (!isPrime(_ctr)) {
+            _ctr--;
+        }
 	}
+
+
+	 // Check if a number is prime
+	 private boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 	// TODO: dev3- count the frequency of word in sentence,
     // refactor source code from dev1 and dev2

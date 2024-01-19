@@ -28,14 +28,26 @@ public class Counter {
 		_ctr = _ctr * _multiplier; // no fault here
 	}
 
-	// TODO: dev1- method for increment to closest even number
 	public void incrementToEven() {
-		_ctr = -99;
+		// Assuming _ctr is the variable to be incremented
+		if (_ctr % 2 != 0) {
+			// If _ctr is odd, increment it to make it even
+			_ctr++;
+		} else {
+			// If _ctr is already even, increment it by 2 to make it the next even number
+			_ctr += 2;
+		}
 	}
 
-	// TODO: dev1- method for decrement to closest even number
 	public void decrementToEven() {
-		_ctr = -99;
+		// Assuming _ctr is the variable to be decremented
+		if (_ctr % 2 != 0) {
+			// If _ctr is odd, decrement it to make it even
+			_ctr--;
+		} else {
+			// If _ctr is already even, decrement it by 2 to make it the previous even number
+			_ctr -= 2;
+		}
 	}
 
 	// TODO: dev2- method for increment to closest prime number

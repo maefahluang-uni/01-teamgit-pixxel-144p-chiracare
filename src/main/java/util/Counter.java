@@ -1,6 +1,8 @@
 package util;
 
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //This is an example (faulty) class to be used for A4 Task1 and Task2
 public class Counter {
@@ -49,9 +51,25 @@ public class Counter {
 	}
 
 	// TODO: dev3- count the frequency of word in sentence,
-	// refactor source code from dev1 and dev2
-	public void countFrequency(String word, String sentence) {
-		_ctr = -99;
-	}
+    // refactor source code from dev1 and dev2
+    public void countFrequency(String word, String sentence) {
+        // Reset the counter before counting the frequency
+        _ctr = 0;
 
+        // Check if the word and sentence are not null or empty
+        if (word != null && sentence != null && !word.isEmpty() && !sentence.isEmpty()) {
+            // Use regex to find matches of the word in the sentence
+            String regex = "\\b" + Pattern.quote(word) + "\\b";
+            Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(sentence);
+
+            // Count the number of matches found
+            while (matcher.find()) {
+                _ctr++;
+            }
+        } else {
+            // Handle the case where either the word or sentence is null or empty
+            System.out.println("Invalid input. Please provide a non-null, non-empty word and sentence.");
+        }
+	}
 }
